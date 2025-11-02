@@ -26,7 +26,7 @@ func (todos *Todos) Add(title string) {
 func (todos *Todos) Delete(index int) error {
 	t := *todos
 	if index < 0 || index >= len(t) {
-		return fmt.Errorf("indice non trovato")
+		return fmt.Errorf("index not found")
 	}
 	*todos = append(t[:index], t[index+1:]...)
 	return nil
@@ -35,7 +35,7 @@ func (todos *Todos) Delete(index int) error {
 func (todos *Todos) Complete(index int) error {
 	t := *todos
 	if index < 0 || index >= len(t) {
-		return fmt.Errorf("indice non trovato")
+		return fmt.Errorf("index not found")
 	}
 	completedTime := time.Now()
 	t[index].Completed = !t[index].Completed
